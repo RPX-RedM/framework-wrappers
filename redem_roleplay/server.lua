@@ -89,8 +89,6 @@ RedEM = {
                 -- This function has the same arguments.
                 self.SetMetaData = player.SetMetaData
 
-
-
                 self.CitizenId = function() return self.citizenid end
                 self.GetMetaData = function() return self.metadata end
                 self.GetMoney = function() return self.money end
@@ -167,6 +165,14 @@ RedEM = {
         return nil
     end,
     RegisterCallback = function(...) exports['rpx-core']:CreateCallback(...) end,
+    Functions = {
+        NotifyRight = function(...)
+            return RPX.pNotifyRight(...)
+        end,
+        NotifyLeft = function(...)
+            return RPX.NotifyLeft(...)
+        end,
+    },
 }
 
 RedEM.GetPlayerCB = function(source, cb)
@@ -182,3 +188,5 @@ AddEventHandler("redemrp:getPlayerFromId", RedEM.GetPlayerCB)
 exports("RedEM", function()
     return RedEM
 end)
+
+-- © 2023 Sinatra#0101 & RPX Framework RedM
