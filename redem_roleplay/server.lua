@@ -1,13 +1,5 @@
 RPX = exports['rpx-core']:GetObject()
 
--- Written by Sinatra#0101 for RPX Framework
--- This wrapper enables you to run RedEM-RP scripts on RPX Framework with (almost) no changes. Most should work out of the box.
--- This wrapper also enables you to run locked RedEM-RP scripts on the RPX Framework.
--- This wrapper is compatible with RedEM-RP 2023 "reboot" by yours truly, as well as the original / "old" redemrp by amakuu, kane, ktos, and others.
-
--- RedEM-RP 2023 scripts would access the player using RedEM.GetPlayer(source) and import the RedEM object. This is implemented here.
--- RedEM-RP original / "old" scripts would access the player using "redemrp:getPlayerFromId" event. This is also implemented here.
-
 local function ErrNotImpl()
     print("Not Implemented")
 end

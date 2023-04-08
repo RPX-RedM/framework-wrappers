@@ -1,9 +1,5 @@
 RPX = exports['rpx-core']:GetObject()
 
--- Written by Sinatra#0101 for RPX Framework
--- This wrapper enables you to run QBR-Core scripts on RPX Framework with (almost) no changes. Most should work out of the box.
--- This wrapper also enables you to run some locked QBR-Core scripts on the RPX Framework.
-
 local function ErrNotImpl()
     print("Not Implemented")
 end
