@@ -157,6 +157,7 @@ RedEM = {
         return nil
     end,
     RegisterCallback = function(...) exports['rpx-core']:CreateCallback(...) end,
+    CreateCallback = function(...) exports['rpx-core']:CreateCallback(...) end,
     Functions = {
         NotifyRight = function(...)
             return RPX.pNotifyRight(...)
