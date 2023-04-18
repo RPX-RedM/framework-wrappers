@@ -12,15 +12,15 @@ GetPlayerData = function()
     PlayerData.name = GetPlayerName(source)
     PlayerData.cid = LocalPlayer.state.slot
     PlayerData.money = {
-        cash = LocalPlayer.state.cash,
-        bank = LocalPlayer.state.bank
+        cash = LocalPlayer.state.money.cash,
+        bank = LocalPlayer.state.money.bank
     }
     -- Charinfo
     PlayerData.charinfo = {}
-    PlayerData.charinfo.firstname = LocalPlayer.state.firstname 
-    PlayerData.charinfo.lastname = LocalPlayer.state.lastname
-    PlayerData.charinfo.birthdate = LocalPlayer.state.age
-    PlayerData.charinfo.gender = LocalPlayer.state.gender
+    PlayerData.charinfo.firstname = LocalPlayer.state.charinfo.firstname 
+    PlayerData.charinfo.lastname = LocalPlayer.state.charinfo.lastname
+    PlayerData.charinfo.birthdate = LocalPlayer.state.charinfo.age
+    PlayerData.charinfo.gender = LocalPlayer.state.charinfo.gender
     PlayerData.charinfo.nationality = 'Unknown'
     PlayerData.charinfo.account = '0'
 
@@ -29,7 +29,7 @@ GetPlayerData = function()
 
     -- Job
     PlayerData.job = {}
-    PlayerData.job.name = LocalPlayer.state.job
+    PlayerData.job.name = LocalPlayer.state.job.name
     PlayerData.job.label = 'Unknown'
     PlayerData.job.payment = 0
 
@@ -37,15 +37,15 @@ GetPlayerData = function()
     PlayerData.job.isboss = false
     PlayerData.job.grade = {}
     PlayerData.job.grade.name = 'UNK'
-    PlayerData.job.grade.level = tonumber(LocalPlayer.state.jobrank)
+    PlayerData.job.grade.level = tonumber(LocalPlayer.state.job.rank)
     -- Gang
     PlayerData.gang = {}
-    PlayerData.gang.name = LocalPlayer.state.gang
+    PlayerData.gang.name = LocalPlayer.state.gang.name
     PlayerData.gang.label = 'Unknown'
     PlayerData.gang.isboss = false
     PlayerData.gang.grade = {}
     PlayerData.gang.grade.name = 'UNK'
-    PlayerData.gang.grade.level = tonumber(LocalPlayer.state.gangrank)
+    PlayerData.gang.grade.level = tonumber(LocalPlayer.state.gang.rank)
     -- Other
     PlayerData.position = vector3(0.0, 0.0, 0.0)
     PlayerData.LoggedIn = true
@@ -58,7 +58,7 @@ exports('TriggerCallback', function(name, cb)
 end)
 
 RegisterNetEvent("CLIENT:RPX:PlayerLoaded", function()
-    TriggerEvent("QBCore:Client:OnPlayerLoaded", source, player)
+    TriggerEvent("QBCore:Client:OnPlayerLoaded", source)
 end)
 
 -- © 2023 Sinatra#0101 & RPX Framework RedM

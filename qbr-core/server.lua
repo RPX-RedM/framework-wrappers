@@ -100,11 +100,11 @@ GetPlayer = function(source)
         self.PlayerData = QBRPlayerData
     
         self.Functions.UpdatePlayerData = function()
-            player.UpdateStateBags()
+            RPX.UpdateStateBags(player.source)
         end
     
         self.Functions.SetJob = function(job, grade)
-            TriggerClientEvent("QBCore:Client:OnJobUpdate", source, {name = gang, grade = grade, label = 'Unknown', isboss = false})
+            TriggerClientEvent("QBCore:Client:OnJobUpdate", source, {name = job, grade = grade, label = 'Unknown', isboss = false})
             player.SetJob(job, grade)
         end
     
@@ -126,7 +126,7 @@ GetPlayer = function(source)
             if not player.metadata[keyname] then
                 player.SetMetaData(keyname, 0)
             end
-            player.SetMetaData(keyname, player.GetMetaData(keyname) + amount)
+            player.SetMetaData(keyname, player.metadata[keyname] + amount)
         end
     
         self.Functions.AddMoney = function(moneytype, amount, reason)
@@ -150,11 +150,11 @@ GetPlayer = function(source)
         end
     
         self.Functions.AddXp = function(skill, amount)
-            player.SetMetaData('xp:'..skill, player.GetMetaData('xp:'..skill) + amount)
+            player.SetMetaData('xp:'..skill, player.metadata['xp:'..skill] + amount)
         end
     
         self.Functions.RemoveXp = function(skill, amount)
-            player.SetMetaData('xp:'..skill, player.GetMetaData('xp:'..skill) - amount)
+            player.SetMetaData('xp:'..skill, player.metadata['xp:'..skill] - amount)
         end
     
         self.Functions.Save = function()
@@ -192,7 +192,7 @@ exports('GetQBPlayers', function()
     for k, v in pairs(RPX.Players) do
         QBPlayers[k] = GetPlayer(k)
     end
-    return QBCore.Players
+    return QBPlayers
 end)
 
 RegisterNetEvent("SERVER:RPX:PlayerLoaded", function(source)
