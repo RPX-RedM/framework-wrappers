@@ -11,7 +11,7 @@ RedEM = {
             local RedEMPlayer = function()
                 local self = {}
                 self.source = source
-                self.identifier = player.identifier
+                self.identifier = player.license
                 self.charid = player.slot
                 self.name = player.name
                 self.group = player.permissiongroup
@@ -160,10 +160,10 @@ RedEM = {
     CreateCallback = function(...) exports['rpx-core']:CreateCallback(...) end,
     Functions = {
         NotifyRight = function(...)
-            return RPX.pNotifyRight(...)
+            return
         end,
         NotifyLeft = function(...)
-            return RPX.NotifyLeft(...)
+            return
         end,
     },
 }
