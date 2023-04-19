@@ -1,4 +1,4 @@
-RPX = exports['rpx-core']:GetObject()
+local RPX = exports['rpx-core']:GetObject()
 
 local function ErrNotImpl()
     print("Not Implemented")
